@@ -4,6 +4,29 @@
     <title>Letter Play</title>
 </head>
 <body>
+<h1 id="wordChallenge"> Letter Play</h1>
+<input id="wordResponse" type="text" name="response">
+<script type="text/javascript">
+    var score = 0;
 
+    var wordChallenge = document.getElementById('wordChallenge');
+    var wordResponse = document.getElementById('wordResponse');
+    
+    // add event listener on key up on input to be able to ensure we get every letter typed.
+    wordResponse.addEventListener("keyup", function(e){
+        e.preventDefault();
+        if (wordResponse.value.length === 1){
+           console.log(wordResponse.value); 
+        } else {
+            // create an array from the word being passed into the input for the
+            // purpose of being able to get each and every letter on the console
+            var arrayFromWord = Array.from(wordResponse.value);
+            // assign length of the array gotten
+            var responseLength = Array.from(wordResponse.value).length;
+            console.log(arrayFromWord[responseLength - 1]);
+        }
+
+    })
+</script>
 </body>
 </html>
