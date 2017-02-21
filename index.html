@@ -16,14 +16,31 @@
     wordResponse.addEventListener("keyup", function(e){
         e.preventDefault();
         if (wordResponse.value.length === 1){
-           console.log(wordResponse.value); 
+           console.log(wordResponse.value);
+           // assign index of letter in word to letterIndex as play the  wordChallenge
+           var letterIndex = wordChallenge.innerText.indexOf(wordResponse.value);
+           // show where that letter exists
+           if (letterIndex > -1 ){
+            console.log('The letter ' + wordResponse.value + " is at position " + letterIndex.toString());
+           } else {
+            console.log('The letter ' + wordResponse.value + " does not exist in that word.");
+           }
         } else {
             // create an array from the word being passed into the input for the
             // purpose of being able to get each and every letter on the console
             var arrayFromWord = Array.from(wordResponse.value);
             // assign length of the array gotten
             var responseLength = Array.from(wordResponse.value).length;
-            console.log(arrayFromWord[responseLength - 1]);
+            var lastLetterOfWordResponse = arrayFromWord[responseLength - 1]
+            // assign index of letter in word to letterIndex as play the  wordChallenge
+            var letterIndex = wordChallenge.innerText.indexOf(lastLetterOfWordResponse);
+            // show where that letter exists
+            if (letterIndex > -1 ){
+                console.log('The letter ' + lastLetterOfWordResponse + " is at position " + letterIndex.toString());
+               } else {
+                console.log('The letter ' + lastLetterOfWordResponse + " does not exist in that word.");
+               }
+
         }
 
     })
