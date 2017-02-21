@@ -16,12 +16,12 @@
     wordResponse.addEventListener("keyup", function(e){
         e.preventDefault();
         if (wordResponse.value.length === 1){
-           console.log(wordResponse.value);
+            // convert the word challenge to lower case first
            // assign index of letter in word to letterIndex as play the  wordChallenge
            var letterIndex = wordChallenge.innerText.indexOf(wordResponse.value);
            // show where that letter exists
            if (letterIndex > -1 ){
-            console.log('The letter ' + wordResponse.value + " is at position " + letterIndex.toString());
+            console.log('The letter ' + wordResponse.value + " is at position " + letterIndex.toString() + " of the word:" + wordChallenge.innerText);
            } else {
             console.log('The letter ' + wordResponse.value + " does not exist in that word.");
            }
@@ -33,10 +33,11 @@
             var responseLength = Array.from(wordResponse.value).length;
             var lastLetterOfWordResponse = arrayFromWord[responseLength - 1]
             // assign index of letter in word to letterIndex as play the  wordChallenge
+            // NOTE : IndexOf checks for case
             var letterIndex = wordChallenge.innerText.indexOf(lastLetterOfWordResponse);
             // show where that letter exists
             if (letterIndex > -1 ){
-                console.log('The letter ' + lastLetterOfWordResponse + " is at position " + letterIndex.toString());
+                console.log('The letter ' + lastLetterOfWordResponse + " is at position " + letterIndex.toString() + " of the word:" + wordChallenge.innerText);
                } else {
                 console.log('The letter ' + lastLetterOfWordResponse + " does not exist in that word.");
                }
