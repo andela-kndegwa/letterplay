@@ -38,6 +38,7 @@
         if (wordResponse.value.length === 1) {
             // convert the word challenge to lower case first
             // assign index of letter in word to letterIndex as play the  wordChallenge
+            // Remove the white space because of the addition of spans to every letter.
             var letterIndex = wordChallenge.innerText.replace(/ +/g, "").indexOf(wordResponse.value);
             // show where that letter exists
             if (letterIndex > -1) {
@@ -56,6 +57,7 @@
             var lastLetterOfWordResponse = arrayFromWord[responseLength - 1]
                 // assign index of letter in word to letterIndex as play the  wordChallenge
                 // NOTE : IndexOf checks for case
+                // Remove the white space because of the addition of spans to every letter.
             var letterIndex = wordChallenge.innerText.replace(/ +/g, "").indexOf(lastLetterOfWordResponse);
             // show where that letter exists
             if (letterIndex > -1) {
@@ -68,6 +70,8 @@
         }
 
     })
+
+    // This event listener allows us to be able to check on enter if the word is in our mock dictionary.
     wordResponse.addEventListener('keypress', function(e) {
         if (e.keyCode == 13) {
             var fullWord = wordResponse.value;
