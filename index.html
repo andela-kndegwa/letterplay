@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Letter Play</title>
 </head>
-<body>
-<h1 id="wordChallenge"> Letter Play</h1>
-<input id="wordResponse" type="text" name="response">
-<script type="text/javascript">
-    var score = 0;
 
+<body>
+    <h1 id="wordChallenge"> Letter Play</h1>
+    <input id="wordResponse" type="text" name="response">
+    <script type="text/javascript">
+    var score = 0;
+    // Declares reference dictionary support
+    // Think of this as the mock dictionary.
+    var referenceDictionary = ['letter', 'play', 'real', 'pay', 'lay', 'ray', 'let'];
     var wordChallenge = document.getElementById('wordChallenge');
     var wordResponse = document.getElementById('wordResponse');
-    
+
     // add event listener on key up on input to be able to ensure we get every letter typed.
-    wordResponse.addEventListener("keyup", function(e){
+    wordResponse.addEventListener("keyup", function(e) {
         e.preventDefault();
-        if (wordResponse.value.length === 1){
+        if (wordResponse.value.length === 1) {
             // convert the word challenge to lower case first
-           // assign index of letter in word to letterIndex as play the  wordChallenge
-           var letterIndex = wordChallenge.innerText.indexOf(wordResponse.value);
-           // show where that letter exists
-           if (letterIndex > -1 ){
-            console.log('The letter ' + wordResponse.value + " is at position " + letterIndex.toString() + " of the word:" + wordChallenge.innerText);
-           } else {
-            console.log('The letter ' + wordResponse.value + " does not exist in that word.");
-           }
+            // assign index of letter in word to letterIndex as play the  wordChallenge
+            var letterIndex = wordChallenge.innerText.indexOf(wordResponse.value);
+            // show where that letter exists
+            if (letterIndex > -1) {
+                console.log('The letter ' + wordResponse.value + " is at position " + letterIndex.toString() + " of the word:" + wordChallenge.innerText);
+            } else {
+                console.log('The letter ' + wordResponse.value + " does not exist in that word.");
+            }
         } else {
             // create an array from the word being passed into the input for the
             // purpose of being able to get each and every letter on the console
@@ -32,19 +36,32 @@
             // assign length of the array gotten
             var responseLength = Array.from(wordResponse.value).length;
             var lastLetterOfWordResponse = arrayFromWord[responseLength - 1]
-            // assign index of letter in word to letterIndex as play the  wordChallenge
-            // NOTE : IndexOf checks for case
+                // assign index of letter in word to letterIndex as play the  wordChallenge
+                // NOTE : IndexOf checks for case
             var letterIndex = wordChallenge.innerText.indexOf(lastLetterOfWordResponse);
             // show where that letter exists
-            if (letterIndex > -1 ){
+            if (letterIndex > -1) {
                 console.log('The letter ' + lastLetterOfWordResponse + " is at position " + letterIndex.toString() + " of the word:" + wordChallenge.innerText);
-               } else {
+            } else {
                 console.log('The letter ' + lastLetterOfWordResponse + " does not exist in that word.");
-               }
+            }
 
         }
 
     })
-</script>
+    wordResponse.addEventListener('keypress', function(e) {
+        if (e.keyCode == 13) {
+            var fullWord = wordResponse.value;
+            var wordIndex = referenceDictionary.indexOf(fullWord.toLowerCase())
+            if(wordIndex > -1){
+              console.log('The word ' + fullWord + " is in the dictionary. You got it!");
+            } else{
+              console.log('The word ' + fullWord + " is not in the dictionary. How could you!");
+            }
+            wordResponse.value = '';
+        }
+    })
+    </script>
 </body>
+
 </html>
