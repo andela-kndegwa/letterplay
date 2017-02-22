@@ -3,10 +3,26 @@
 
 <head>
     <title>Letter Play</title>
+    <style type="text/css">
+      .text-highlight{
+        color: red;
+      }
+    </style>
 </head>
 
 <body>
-    <h1 id="wordChallenge"> Letter Play</h1>
+    <h1 id="wordChallenge"> 
+    <span>L</span>
+    <span>e</span>
+    <span>t</span>
+    <span>t</span>
+    <span>e</span>
+    <span>r</span>
+    <span>P</span>
+    <span>l</span>
+    <span>a</span>
+    <span>y</span>
+  </h1>
     <input id="wordResponse" type="text" name="response">
     <script type="text/javascript">
     var score = 0;
@@ -22,10 +38,12 @@
         if (wordResponse.value.length === 1) {
             // convert the word challenge to lower case first
             // assign index of letter in word to letterIndex as play the  wordChallenge
-            var letterIndex = wordChallenge.innerText.indexOf(wordResponse.value);
+            var letterIndex = wordChallenge.innerText.replace(/ +/g, "").indexOf(wordResponse.value);
             // show where that letter exists
             if (letterIndex > -1) {
                 console.log('The letter ' + wordResponse.value + " is at position " + letterIndex.toString() + " of the word:" + wordChallenge.innerText);
+                console.log(letterIndex);
+                wordChallenge.children[letterIndex].classList.add('text-highlight');
             } else {
                 console.log('The letter ' + wordResponse.value + " does not exist in that word.");
             }
@@ -38,10 +56,11 @@
             var lastLetterOfWordResponse = arrayFromWord[responseLength - 1]
                 // assign index of letter in word to letterIndex as play the  wordChallenge
                 // NOTE : IndexOf checks for case
-            var letterIndex = wordChallenge.innerText.indexOf(lastLetterOfWordResponse);
+            var letterIndex = wordChallenge.innerText.replace(/ +/g, "").indexOf(lastLetterOfWordResponse);
             // show where that letter exists
             if (letterIndex > -1) {
                 console.log('The letter ' + lastLetterOfWordResponse + " is at position " + letterIndex.toString() + " of the word:" + wordChallenge.innerText);
+                wordChallenge.children[letterIndex].classList.add('text-highlight');
             } else {
                 console.log('The letter ' + lastLetterOfWordResponse + " does not exist in that word.");
             }
