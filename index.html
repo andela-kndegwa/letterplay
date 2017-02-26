@@ -4,21 +4,21 @@
 <head>
     <title>Letter Play</title>
     <style type="text/css">
-      .text-highlight{
+    .text-highlight {
         color: red;
-      }
+    }
     </style>
 </head>
 
 <body>
     <h1 id="wordChallenge"> 
-    <span>L</span>
+    <span>l</span>
     <span>e</span>
     <span>t</span>
     <span>t</span>
     <span>e</span>
     <span>r</span>
-    <span>P</span>
+    <span>p</span>
     <span>l</span>
     <span>a</span>
     <span>y</span>
@@ -32,23 +32,34 @@
     var wordChallenge = document.getElementById('wordChallenge');
     var wordResponse = document.getElementById('wordResponse');
 
+
+    // The get letter count function creates a map that contains the count of all the unique
+    // letters in our wordChallenge.
+    function getLetterCount(wordChallenge) {
+        // Object that holds all the unique characters --> letterOccurrenceMap
+        var letterOccurrenceMap = {};
+        var wordArray = wordChallenge.innerText.split(" ");
+        // loop through all the letters.
+        for (i = 0; i < wordArray.length; i++) {
+            count = 0;
+            // have a reference array to be able to loop through
+            for (b = 0; b < wordArray.length; b++) {
+                if (wordArray[i] == wordArray[b]) {
+                    count++
+                }
+                // Key --> letter
+                // Value --> Count
+                letterOccurrenceMap[wordArray[i]] = count;
+            }
+        }
+        return letterOccurrenceMap
+    }
+    //Get the map from the above function
+    var wordChallengeMap = getLetterCount(wordChallenge);
+
     // add event listener on key up on input to be able to ensure we get every letter typed.
     wordResponse.addEventListener("keyup", function(e) {
         e.preventDefault();
-        if (wordResponse.value.length === 1) {
-            // convert the word challenge to lower case first
-            // assign index of letter in word to letterIndex as play the  wordChallenge
-            // Remove the white space because of the addition of spans to every letter.
-            var letterIndex = wordChallenge.innerText.replace(/ +/g, "").indexOf(wordResponse.value);
-            // show where that letter exists
-            if (letterIndex > -1) {
-                console.log('The letter ' + wordResponse.value + " is at position " + letterIndex.toString() + " of the word:" + wordChallenge.innerText);
-                console.log(letterIndex);
-                wordChallenge.children[letterIndex].classList.add('text-highlight');
-            } else {
-                console.log('The letter ' + wordResponse.value + " does not exist in that word.");
-            }
-        } else {
             // create an array from the word being passed into the input for the
             // purpose of being able to get each and every letter on the console
             var arrayFromWord = Array.from(wordResponse.value);
@@ -66,9 +77,6 @@
             } else {
                 console.log('The letter ' + lastLetterOfWordResponse + " does not exist in that word.");
             }
-
-        }
-
     })
 
     // This event listener allows us to be able to check on enter if the word is in our mock dictionary.
@@ -76,10 +84,10 @@
         if (e.keyCode == 13) {
             var fullWord = wordResponse.value;
             var wordIndex = referenceDictionary.indexOf(fullWord.toLowerCase())
-            if(wordIndex > -1){
-              console.log('The word ' + fullWord + " is in the dictionary. You got it!");
-            } else{
-              console.log('The word ' + fullWord + " is not in the dictionary. How could you!");
+            if (wordIndex > -1) {
+                console.log('The word ' + fullWord + " is in the dictionary. You got it!");
+            } else {
+                console.log('The word ' + fullWord + " is not in the dictionary. How could you!");
             }
             wordResponse.value = '';
         }
