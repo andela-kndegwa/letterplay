@@ -5,10 +5,10 @@
     var wordChallenge = document.getElementById('wordChallenge');
     var wordResponse = document.getElementById('wordResponse');
     // prevent copy and paste of information into the input box
-    wordResponse.onpaste = function(cp){
-        cp.preventDefault();
+    //use case 
+    wordResponse.onpaste = function(e) {
+        e.preventDefault();
     }
-
 
     // The get letter count function creates a map that contains the count of all the unique
     // letters in our wordChallenge.
@@ -33,34 +33,43 @@
         return letterOccurrenceMap
     }
     //Get the map from the above function
-    var wordChallengeMap = getLetterCount(wordChallenge);
-            // add event listener on key up on input to be able to ensure we get every letter typed.
-            wordResponse.addEventListener("keyup", function(e) {
-                e.preventDefault();
-                if (wordResponse.value.length > 0){
-                    // create an array from the word being passed into the input for the
-                    // purpose of being able to get each and every letter on the console
-                    var arrayFromWord = Array.from(wordResponse.value);
-                    // assign length of the array gotten
-                    var responseLength = Array.from(wordResponse.value).length;
-                    var lastLetterOfWordResponse = arrayFromWord[responseLength - 1]
-                        // assign index of letter in word to letterIndex as play the  wordChallenge
-                        // NOTE : IndexOf checks for case
-                        // Remove the white space because of the addition of spans to every letter.
-                    var letterIndex = wordChallenge.innerText.replace(/ +/g, "").indexOf(lastLetterOfWordResponse);
-                    // show where that letter exists
-                    if (letterIndex > -1) {
-                        console.log('The letter ' + lastLetterOfWordResponse + " is at position " + letterIndex.toString() + " of the word:" + wordChallenge.innerText);
-                        wordChallenge.children[letterIndex].classList.add('text-highlight');
-                    } else {
-                        console.log('The letter ' + lastLetterOfWordResponse + " does not exist in that word.");
+    var wordChallengeMap = getLetterCount(wordChallenge)
+    var uniqueKeys = Object.keys(wordChallengeMap)
+    var uniqueKeyLength = Object.keys(wordChallengeMap).length
+    var strippedWordChallenge = wordChallenge.innerText.replace(/ +/g, "");
+
+    function resetHighlights(el) {
+        for (var ind = 0; ind < el.children.length; ind++) {
+            if (el.children[ind].classList.contains('text-highlight')) {
+                el.children[ind].classList.remove('text-highlight')
+            }
+        }
+    }
+
+    function gamePlay() {
+        wordResponse.addEventListener('keyup', function(e) {
+            for (var l = 0; l < wordResponse.value.length; l++) {
+                // scan through all the letters
+                var letterIndex = strippedWordChallenge.indexOf(wordResponse.value[l]);
+                if (letterIndex > -1) {
+                    for (var b = 0; b < strippedWordChallenge.length; b++) {
+                        if (wordResponse.value[letterIndex] == wordChallenge.children[b].innerHTML && (!wordChallenge.children[b].classList.contains("text-highlight"))) {
+                            return wordChallenge.children[b].classList.add('text-highlight');
+                            // if (!wordChallenge.children[b].classList.contains("text-highlight")) {
+                            //     return wordChallenge.children[b].classList.add("text-highlight");
+                            // }
+                        }
                     }
+
+                } else {
+                    console.log('Wassup');
                 }
-            })
-    
-    wordResponse.addEventListener('keypress', function(e){
-         console.log(e.keyCode);
-    })
+            }
+
+        });
+    }
+    gamePlay();
+
     // This event listener allows us to be able to check on enter if the word is in our mock dictionary.
     wordResponse.addEventListener('keypress', function(e) {
         if (e.keyCode == 13) {
@@ -72,5 +81,6 @@
                 console.log('The word ' + fullWord + " is not in the dictionary. How could you!");
             }
             wordResponse.value = '';
+            resetHighlights(wordChallenge);
         }
     })
