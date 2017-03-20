@@ -4,7 +4,7 @@
     var referenceDictionary = ['letter', 'play', 'real', 'pay', 'lay', 'ray', 'let'];
     var wordChallenge = document.getElementById('wordChallenge');
     var wordResponse = document.getElementById('wordResponse');
-    var mySolutions = document.getElementById('solutions')
+    var solutions = document.getElementById('solutions')
         // prevent copy and paste of information into the input box
         //use case 
     wordResponse.onpaste = function(e) {
@@ -18,18 +18,18 @@
         }
     }
 
-    var strippedWordChallenge = wordChallenge.innerText.replace(/\s+/g, ""); // Explicit spaces
+    var strippedWordChallenge = wordChallenge.innerText.replace(/\s+/g, "").toLowerCase(); // Explicit spaces
 
     function gamePlay(responseValue) {
-        var typedResponse = wordResponse.value
+        var typedResponse = wordResponse.value.toLowerCase()
         var typedResponseLength = typedResponse.length
         for (var l = 0; l < typedResponseLength; l++) {
             var letterIndex = strippedWordChallenge.indexOf(typedResponse[l]);
             if (letterIndex > -1) {
                 var challengeLength = strippedWordChallenge.length
                 for (var b = 0; b < challengeLength; b++) {
-                    var eachLetterInChallenge = wordChallenge.children[b].innerHTML
-                    var eachLetterInResponse = typedResponse[l]
+                    var eachLetterInChallenge = wordChallenge.children[b].innerHTML.toLowerCase()
+                    var eachLetterInResponse = typedResponse[l].toLowerCase()
                     if (eachLetterInResponse === eachLetterInChallenge) {
                         if (!wordChallenge.children[b].classList.contains('text-highlight')) {
                             wordChallenge.children[b].classList.add('text-highlight');
@@ -53,9 +53,7 @@
 
     })
 
-
-
-    // This event listener allows us to be able to check on enter if the word is in our mock dictionary.
+     // This event listener allows us to be able to check on enter if the word is in our mock dictionary.
     wordResponse.addEventListener('keypress', function(e) {
         if (e.keyCode == 13) {
             var fullWord = wordResponse.value;
