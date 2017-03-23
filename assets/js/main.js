@@ -19,7 +19,7 @@
     }
 
     var strippedWordChallenge = wordChallenge.innerText.replace(/\s+/g, "").toLowerCase(); // Explicit spaces
-
+    var timerDuration = strippedWordChallenge.length;
     function gamePlay(responseValue) {
         var typedResponse = wordResponse.value.toLowerCase()
         var typedResponseLength = typedResponse.length
@@ -52,14 +52,24 @@
 
 
     })
+    //show score
+    var currentScore = document.getElementById("score");
+    currentScore.innerText = score;
+    //show target
+    var currentTarget = document.getElementById("target");
+    currentTarget.innerText = referenceDictionary.length
+    //show timer
 
-     // This event listener allows us to be able to check on enter if the word is in our mock dictionary.
+
+// This event listener allows us to be able to check on enter if the word is in our mock dictionary.
     wordResponse.addEventListener('keypress', function(e) {
         if (e.keyCode == 13) {
             var fullWord = wordResponse.value;
             var wordIndex = referenceDictionary.indexOf(fullWord.toLowerCase())
             if (wordIndex > -1) {
                 console.log('The word ' + fullWord + " is in the dictionary. You got it!");
+                score = score + 1;
+                currentScore.innerText = score;
             } else {
                 console.log('The word ' + fullWord + " is not in the dictionary. How could you!");
             }
@@ -67,3 +77,4 @@
             resetHighlights(wordChallenge);
         }
     })
+

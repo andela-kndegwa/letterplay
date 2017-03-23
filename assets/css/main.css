@@ -20,6 +20,11 @@ main {
     main #wordResponse:focus {
       outline: transparent; }
 
+input {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center; }
+
 #wordChallenge {
   text-align: center;
   margin-top: 40vh; }
@@ -28,6 +33,12 @@ main {
     #wordChallenge span:hover {
       cursor: pointer;
       color: #ee8239; }
+
+.stats {
+  display: flex;
+  color: #ee8239;
+  font-size: .6em;
+  justify-content: space-around; }
 
 .text-highlight {
   color: #fae61e; }
