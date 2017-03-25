@@ -1,10 +1,12 @@
     var score = 0;
     // Declares reference dictionary support
     // Think of this as the mock dictionary.
-    var referenceDictionary = ['letter', 'play', 'real', 'pay', 'lay', 'ray', 'let'];
+    var wordList = ['exciting', 'letterplay', 'ambition', 'appealing', 'industrialization']
+    // convert above to word list.
+    var referenceDictionary = ['letter', 'play', 'real', 'pay', 'lay', 'ray', 'let', 'peal', 'pet', 'eat','peat', 'tray', 'pray', 'tea', 'eat', 'tree'];
     var wordChallenge = document.getElementById('wordChallenge');
     var wordResponse = document.getElementById('wordResponse');
-    var solutions = document.getElementById('solutions')
+    // var solutions = document.getElementById('solutions')
         // prevent copy and paste of information into the input box
         //use case 
     wordResponse.onpaste = function(e) {
@@ -45,6 +47,7 @@
     }
 
     // reset the highlights regardless of the key
+    function startGamePlay(){
     wordResponse.addEventListener('keyup', function(e) {
         e.preventDefault();
         resetHighlights(wordChallenge)
@@ -52,29 +55,52 @@
 
 
     })
+    }
     //show score
     var currentScore = document.getElementById("score");
     currentScore.innerText = score;
     //show target
     var currentTarget = document.getElementById("target");
     currentTarget.innerText = referenceDictionary.length
-    //show timer
+    // For timer
+    var wordChallengeLength = strippedWordChallenge.length
 
 
 // This event listener allows us to be able to check on enter if the word is in our mock dictionary.
     wordResponse.addEventListener('keypress', function(e) {
         if (e.keyCode == 13) {
-            var fullWord = wordResponse.value;
+            var solutions = document.getElementById("solutions");
+            var allResponses = solutions.getElementsByTagName("span");
+            var fullWord = wordResponse.value.toLowerCase();
             var wordIndex = referenceDictionary.indexOf(fullWord.toLowerCase())
-            if (wordIndex > -1) {
-                console.log('The word ' + fullWord + " is in the dictionary. You got it!");
+            solutionsMap = []
+            // var solutions = document.getElementById("solutions");
+            solutionsLength = allResponses.length
+            for(var i = 0; i < solutionsLength; i++ ){
+                solutionsMap.push(allResponses[i].innerText)
+            }
+            solutionsMapIndex = solutionsMap.indexOf(fullWord)
+            if (wordIndex > -1 && solutionsMapIndex < 0) {
                 score = score + 1;
                 currentScore.innerText = score;
+                updateSolutions(fullWord)
             } else {
-                console.log('The word ' + fullWord + " is not in the dictionary. How could you!");
+                updateFailedAttempts(fullWord);
             }
             wordResponse.value = '';
             resetHighlights(wordChallenge);
         }
     })
+
+// solutions
+function updateSolutions(solution){
+    var solutions = document.getElementById("solutions");
+    solutions.innerHTML += "<span class='solution'>" + solution.toString() +"</span>"
+}
+// failed attempts
+function updateFailedAttempts(attempt){
+    var solutions = document.getElementById("solutions");
+    solutions.innerHTML += "<span class='wrong'>" + attempt.toString() +"</span>"
+}
+
 

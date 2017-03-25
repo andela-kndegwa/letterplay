@@ -27,7 +27,7 @@ input {
 
 #wordChallenge {
   text-align: center;
-  margin-top: 40vh; }
+  margin-top: 30vh; }
   #wordChallenge span {
     transition: .3s ease; }
     #wordChallenge span:hover {
@@ -36,11 +36,49 @@ input {
 
 .stats {
   display: flex;
+  margin-top: -25vh;
   color: #ee8239;
-  font-size: .6em;
+  font-size: .3em;
   justify-content: space-around; }
 
 .text-highlight {
   color: #fae61e; }
+
+#solutions {
+  display: flex;
+  justify-content: center; }
+
+.solution,
+.wrong {
+  display: inline-flex;
+  justify-content: center;
+  width: 5%;
+  margin: 0 6px;
+  color: white;
+  padding: 5px;
+  font-size: small;
+  border-radius: 30px; }
+
+.solution {
+  background: #00eeba;
+  color: #101731; }
+
+.wrong {
+  background: #fe3d50; }
+
+#deadline-met {
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 20px auto;
+  color: #fe3d50;
+  animation: flash-deadline 1s infinite; }
+
+@keyframes flash-deadline {
+  0% {
+    opacity: .7; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: .7; } }
 
 /*# sourceMappingURL=main.css.map */
