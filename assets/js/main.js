@@ -3,7 +3,7 @@
     // Think of this as the mock dictionary.
     var wordList = ['exciting', 'letterplay', 'ambition', 'appealing', 'industrialization']
     // convert above to word list.
-    var referenceDictionary = ['letter', 'play', 'real', 'pay', 'lay', 'ray', 'let', 'peal', 'pet', 'eat','peat', 'tray', 'pray', 'tea', 'eat', 'tree'];
+    var referenceDictionary = ['letter', 'play', 'real', 'pay', 'lay', 'ray', 'let', 'peal', 'pet', 'eat','peat', 'tray', 'pray', 'tea', 'eat', 'tree', 'replay', 'repay', 'treat'];
     var wordChallenge = document.getElementById('wordChallenge');
     var wordResponse = document.getElementById('wordResponse');
     // var solutions = document.getElementById('solutions')

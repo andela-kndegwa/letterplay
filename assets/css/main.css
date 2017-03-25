@@ -14,11 +14,16 @@ main {
     background: transparent;
     border: none;
     border-bottom: 1px solid #fe3d50;
-    margin: 0 20vw;
+    margin: 5vh 20vw;
     width: 60%;
     height: 15%; }
     main #wordResponse:focus {
       outline: transparent; }
+    main #wordResponse::placeholder {
+      color: white;
+      font-style: italic;
+      font-weight: 100;
+      opacity: .6; }
 
 input {
   color: #fff;
@@ -42,9 +47,12 @@ input {
   justify-content: space-around; }
 
 .text-highlight {
-  color: #fae61e; }
+  color: #fae61e;
+  background: #fe3d50;
+  padding: 25px; }
 
 #solutions {
+  margin-top: 30px;
   display: flex;
   justify-content: center; }
 

@@ -29,7 +29,7 @@ function initializeClock(id, endtime) {
 var timeInSeconds = wordChallengeLength;
 var currentTime = Date.parse(new Date());
 
-var deadline = new Date(currentTime + timeInSeconds * 1000)
+var deadline = new Date(currentTime + timeInSeconds * 2000)
 initializeClock('timer', deadline)
 
 // gotten from the main.js file where gameplay is defined
