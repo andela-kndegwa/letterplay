@@ -1,14 +1,12 @@
     var score = 0;
     // Declares reference dictionary support
     // Think of this as the mock dictionary.
-    var wordList = ['exciting', 'letterplay', 'ambition', 'appealing', 'industrialization']
+    var wordList = ['exciting', 'letterplay', 'ambition', 'appealing', 'undeniable']
     // convert above to word list.
-    var referenceDictionary = ['letter', 'play', 'real', 'pay', 'lay', 'ray', 'let', 'peal', 'pet', 'eat','peat', 'tray', 'pray', 'tea', 'eat', 'tree', 'replay', 'repay', 'treat'];
-    var wordChallenge = document.getElementById('wordChallenge');
+    var wordChallenges = document.getElementsByClassName('wordChallenge');
     var wordResponse = document.getElementById('wordResponse');
-    // var solutions = document.getElementById('solutions')
-        // prevent copy and paste of information into the input box
-        //use case 
+    // prevent copy and paste of information into the input box
+    //  use case --> There is no fun if you can copy and paste! 
     wordResponse.onpaste = function(e) {
         e.preventDefault();
     }
@@ -103,4 +101,15 @@ function updateFailedAttempts(attempt){
     solutions.innerHTML += "<span class='wrong'>" + attempt.toString() +"</span>"
 }
 
+// for each word in the array first thing
+// split each letter into spans.
+// pass this word to the game play function.
 
+
+var newStuff = document.getElementById("newStuff");
+var wordIt = newStuff.innerText;
+for(var i = 0; i < wordIt.length; i ++){
+    newStuff.innerHTML = ''
+    console.log(wordIt.length)
+    // newStuff.innerHTML += "<span>" + wordIt[i] + "</span>"
+}

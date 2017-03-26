@@ -25,3 +25,18 @@
     var wordChallengeMap = getLetterCount(wordChallenge)
     var uniqueKeys = Object.keys(wordChallengeMap)
     var uniqueKeyLength = Object.keys(wordChallengeMap).length
+
+function splitEachWordInList(){
+    var wordListLength = wordList.length;
+    var splitWords = [];
+    for (var j = 0 ; j < wordListLength; j ++){
+        splitWord = [];
+        var eachWord = wordList[j]
+        // console.log(eachWord.length)
+        for(var k = 0; k < eachWord.length; k ++){
+            eachWord[k].innerHTML += "<span>"
+            splitWord.push(eachWord[k])
+        }
+    splitWords.push(splitWord)
+    }
+}
