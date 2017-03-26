@@ -1,7 +1,7 @@
     var score = 0;
     // Declares reference dictionary support
     // Think of this as the mock dictionary.
-    var wordList = ['awesome', 'letterplay', 'ambition', 'appealing', 'undeniable']
+    var wordList = ['awesome', 'letterplay', 'available', 'appealing', 'undeniable']
     // convert above to word list.
     var wordChallenge = document.getElementById('wordChallenge');
     // Get random word from the wordList and add spans to each letter.
@@ -19,7 +19,7 @@
 
     function resetHighlights(el) {
         for (var ind = 0; ind < el.children.length; ind++) {
-            el.children[ind].classList.remove('text-highlight')
+            el.children[ind].classList.remove('text-highlight');
         }
     }
 

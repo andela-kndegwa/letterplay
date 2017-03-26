@@ -34,11 +34,39 @@
     }
     // take random challenge and divide it into spans.
     function turnRandomWordIntoSpans(){
-        var randomChallenge = getRandomWord(); // as above
+        var currentChallengeWord = document.getElementById("wordChallenge")
+        currentChallengeWord = currentChallengeWord.innerText.replace(/\s+/g, "").toLowerCase()
+        var newRandomChallenge = getRandomWord(); // as above
+        // ensure that the new word is never equal to the current word
+        if (currentChallengeWord === newRandomChallenge){
+            newRandomChallenge = getRandomWord()
+        } else{
         var spanned = ""
-        for (var j =0 ; j < randomChallenge.length;j ++ ){
-            spanned += "<span>" + randomChallenge[j] + "</span>"
+        for (var j =0 ; j < newRandomChallenge.length;j ++ ){
+            spanned += "<span>" + newRandomChallenge[j] + "</span>"
         }
         return spanned
+        }
     }
 
+
+function postResults(){
+        //current wordChallenge
+        var challengeWord = document.getElementById("wordChallenge")
+        challengeWord = challengeWord.innerText.replace(/\s+/g, "").toLowerCase()
+        // go through all the solutions at timeout
+        var allStatistics = document.getElementById("solutions");
+        var allWords = allStatistics.getElementsByClassName("solution");
+        var wordsGotten = allWords.length
+        // get all the classes in the top stats
+        var topStats = document.getElementsByClassName("top-stats");
+        for (var l = 0 ; l < topStats.length;l ++ ){
+            var checkWord = topStats[l].innerText.toLocaleLowerCase().trim()
+            if(checkWord === challengeWord){
+                topStats[l].getElementsByTagName("span")[0].innerText = ":" + wordsGotten;
+                topStats[l].classList.add("show-top-stats");
+            } 
+        }
+
+
+}

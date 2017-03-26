@@ -8,12 +8,23 @@
 </head>
 
 <body>
-    <main>
+    <ul id="top-stats">
+    <li class="top-stats"> 
+    <h2>Letterplay<span class="player-score"></span></h2> 
+    </li>
+     <li class="top-stats"><h2>Awesome <span class="player-score"></span></h2> </li>
+     <li class="top-stats"><h2>Available<span class="player-score"></span></h2> </li> 
+     <li class="top-stats"><h2>Undeniable<span class="player-score"></span></h2> </li> 
+     <li class="top-stats"><h2>Appealing<span class="player-score"></span></h2> </li> 
+    </ul>
+        <main>
         <div id="challengeBlock">
             <h1 id="wordChallenge"></h1>
             <img class='refresh' src="assets/img/reload.svg"/>
+
         </div>
-        <input id="wordResponse" type="text" name="response" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Type here...">
+<!--             <a id="next" style="font-size: small">NEXT</a> -->
+        <input id="wordResponse" type="text" name="response" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Type here..." maxlength="10">
         <div id="solutions"></div>
     </main>
     <div id="stats">

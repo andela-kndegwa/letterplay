@@ -1,6 +1,8 @@
 /*Declare basic classes here*/
 body {
   font-size: 4.6rem;
+  height: 100vh;
+  width: 100vw;
   font-family: "Baron Neue";
   color: #00eeba;
   background: #101731; }
@@ -97,6 +99,33 @@ input {
     #stats .timer-stats .seconds {
       font-size: 7.5em;
       display: block; }
+
+#top-stats {
+  display: flex;
+  position: absolute;
+  width: 100%; }
+
+.top-stats {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 20%;
+  height: 100px;
+  background: #fae61e;
+  margin: 0 1%;
+  transform: scale(0);
+  transition: .4s ease; }
+  .top-stats h2 {
+    position: relative;
+    margin: 15% auto;
+    flex-basis: column;
+    color: #101731;
+    font-size: 20px; }
+  .top-stats .player-score {
+    color: #fe3d50; }
+
+.show-top-stats {
+  transform: scale(1); }
 
 .text-highlight {
   color: #fae61e;

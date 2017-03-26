@@ -51,7 +51,7 @@ function stopGame(){
   deadlineMet.style.display = "";
   deadlineMet.style.visibility = "visible";
   wordResponse.disabled = true;
-
+  postResults();
 }
 
 var letterPlayCounter = setInterval(function() {
@@ -68,4 +68,21 @@ var letterPlayCounter = setInterval(function() {
 
         }
         }, 1000);
+
+
+function moveToNextWord(){
+
+    var newChallenge = turnRandomWordIntoSpans();
+    console.log(newChallenge)
+    // initializeClock('timer', deadline)
+    // var timeInSeconds = newChallenge.length;
+
+}
+
+moveToNextWord()
+
+var nextBtn = document.getElementById("next");
+nextBtn.addEventListener('click', function(){
+ console.log('he')
+})
 
