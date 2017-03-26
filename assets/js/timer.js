@@ -16,6 +16,7 @@ function initializeClock(id, endtime) {
 
     function updateClock() {
         var t = getTimeRemaining(endtime);
+        // add the double 00 counter when the number of seconds is less than 10
         secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
         if (t.total <= 0) {
             clearInterval(timeinterval);
@@ -28,9 +29,14 @@ function initializeClock(id, endtime) {
 
 var timeInSeconds = wordChallengeLength;
 var currentTime = Date.parse(new Date());
-
-var deadline = new Date(currentTime + timeInSeconds * 2000)
+var delay = 5000; // will play around with
+var deadline = new Date(delay + currentTime + timeInSeconds * 2000 )
 initializeClock('timer', deadline)
+
+// add event listener once you click on the word response input box
+// wordResponse.addEventListener('click', function(){
+//   initializeClock('timer', deadline)
+// })
 
 // gotten from the main.js file where gameplay is defined
 // If timer is at 0 stop.
@@ -61,7 +67,5 @@ var letterPlayCounter = setInterval(function() {
           clearInterval(letterPlayCounter)// clear interval if the time is up
 
         }
-
-
-    }, 1000);
+        }, 1000);
 

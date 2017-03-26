@@ -1,28 +1,11 @@
     var score = 0;
     // Declares reference dictionary support
     // Think of this as the mock dictionary.
-    var wordList = ['exciting', 'letterplay', 'ambition', 'appealing', 'undeniable']
+    var wordList = ['awesome', 'letterplay', 'ambition', 'appealing', 'undeniable']
     // convert above to word list.
     var wordChallenge = document.getElementById('wordChallenge');
-    // randomly select a word from the wordList and then return it.
-    // this is what will become the text for the wordChallenge
-    function getRandomWord (){
-        var randomChallenge = wordList[Math.floor(Math.random()*wordList.length)];
-        return randomChallenge;
-    }
-    
-    // take random challenge and divide it into spans.
-    function turnRandomWordIntoSpans(){
-        var randomChallenge = getRandomWord();
-        var spanned = ""
-        for (var j =0 ; j < randomChallenge.length;j ++ ){
-            spanned += "<span>" + randomChallenge[j] + "</span>"
-        }
-        return spanned
-    }
-    // Add spans with this function
+    // Get random word from the wordList and add spans to each letter.
     var spannedChallenge = turnRandomWordIntoSpans()
-    // Line 6 here we go.
     wordChallenge.innerHTML = spannedChallenge
     // wordChallenge.innerText = getRandomWord();
     // get response form the user
@@ -76,11 +59,15 @@
 
     })
     }
+    // get the currently displayed word.
+    var challengeWord = document.getElementById("wordChallenge").innerText
     //show score
     var currentScore = document.getElementById("score");
     currentScore.innerText = score;
     //show target
     var currentTarget = document.getElementById("target");
+    // get the right dictionary for the job.
+    var referenceDictionary = matchWordToItsDictionary(challengeWord);
     currentTarget.innerText = referenceDictionary.length
     // For timer
     var wordChallengeLength = strippedWordChallenge.length
@@ -94,7 +81,6 @@
             var fullWord = wordResponse.value.toLowerCase();
             var wordIndex = referenceDictionary.indexOf(fullWord.toLowerCase())
             solutionsMap = []
-            // var solutions = document.getElementById("solutions");
             solutionsLength = allResponses.length
             for(var i = 0; i < solutionsLength; i++ ){
                 solutionsMap.push(allResponses[i].innerText)
@@ -123,7 +109,12 @@ function updateFailedAttempts(attempt){
     solutions.innerHTML += "<span class='wrong'>" + attempt.toString() +"</span>"
 }
 
-// for each word in the array first thing
-// split each letter into spans.
-// pass this word to the game play function.
+
+// refresh page
+
+var refreshIcon = document.getElementsByClassName("refresh")[0]
+refreshIcon.addEventListener('click', function(e){
+    e.preventDefault();
+    location.reload();
+})
 

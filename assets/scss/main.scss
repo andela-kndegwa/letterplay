@@ -16,6 +16,19 @@ body{
     background: $main-color;
 }
 
+#challengeBlock{
+    display: flex;
+    justify-content: center;
+    img{
+        margin-top: 70px;
+        width: 2%;
+        cursor: pointer;
+    }
+}
+
+.refresh-icon{
+    fill: $font-color;
+}
 main{
     display: table;
     width: 100%;

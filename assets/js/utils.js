@@ -32,13 +32,13 @@
         var randomChallenge = wordList[Math.floor(Math.random()*wordList.length)];
         return randomChallenge;
     }
-    
     // take random challenge and divide it into spans.
     function turnRandomWordIntoSpans(){
-        var randomChallenge = getRandomWord();
+        var randomChallenge = getRandomWord(); // as above
         var spanned = ""
         for (var j =0 ; j < randomChallenge.length;j ++ ){
             spanned += "<span>" + randomChallenge[j] + "</span>"
         }
         return spanned
     }
+

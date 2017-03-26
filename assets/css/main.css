@@ -5,6 +5,17 @@ body {
   color: #00eeba;
   background: #101731; }
 
+#challengeBlock {
+  display: flex;
+  justify-content: center; }
+  #challengeBlock img {
+    margin-top: 70px;
+    width: 2%;
+    cursor: pointer; }
+
+.refresh-icon {
+  fill: #00eeba; }
+
 main {
   display: table;
   width: 100%;

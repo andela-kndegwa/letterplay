@@ -9,21 +9,27 @@
 
 <body>
     <main>
-    <h1 id="wordChallenge"></h1>
-    <input id="wordResponse" type="text" name="response" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Type here...">
-    <div id="solutions"></div>
+        <div id="challengeBlock">
+            <h1 id="wordChallenge"></h1>
+            <img class='refresh' src="assets/img/reload.svg"/>
+        </div>
+        <input id="wordResponse" type="text" name="response" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Type here...">
+        <div id="solutions"></div>
     </main>
     <div class="stats">
-    <h2>SCORE : <span id="score"></span></h2>
-    <h2>TARGET : <span id="target"></span></h2>
-    <h2 id="timer">TIME LEFT: <span class="seconds"></span>sec</h2>
- </div>
-  <h2 id="deadline-met">Oops! Looks like you ran out of time!</h2>
-    <script type="text/javascript" src="assets/js/utils.js"> </script>
-    <script type="text/javascript" src="assets/js/dictionary.js"> </script>
-    <script type="text/javascript" src="assets/js/main.js"> </script>
-    <script type="text/javascript" src="assets/js/timer.js"> </script>
-
+        <h2>SCORE : <span id="score"></span></h2>
+        <h2>TARGET : <span id="target"></span></h2>
+        <h2 id="timer">TIME LEFT: <span class="seconds"></span>sec</h2>
+    </div>
+    <h2 id="deadline-met">Oops! Looks like you ran out of time!</h2>
+    <script type="text/javascript" src="assets/js/utils.js">
+    </script>
+    <script type="text/javascript" src="assets/js/dictionary.js">
+    </script>
+    <script type="text/javascript" src="assets/js/main.js">
+    </script>
+    <script type="text/javascript" src="assets/js/timer.js">
+    </script>
 </body>
 
 </html>
