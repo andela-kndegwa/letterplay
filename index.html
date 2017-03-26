@@ -16,10 +16,10 @@
         <input id="wordResponse" type="text" name="response" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Type here...">
         <div id="solutions"></div>
     </main>
-    <div class="stats">
-        <h2>SCORE : <span id="score"></span></h2>
-        <h2>TARGET : <span id="target"></span></h2>
-        <h2 id="timer">TIME LEFT: <span class="seconds"></span>sec</h2>
+    <div id="stats">
+        <div class="score-stats"><h2>SCORE : <span id="score"></span></h2></div>
+        <div class="target-stats"><h2>TARGET WORDS: <span id="target"></span></h2></div>
+        <div class=timer-stats> <h2 id="timer">TIME LEFT(seconds): <span class="seconds"></span></h2></div>
     </div>
     <h2 id="deadline-met">Oops! Looks like you ran out of time!</h2>
     <script type="text/javascript" src="assets/js/utils.js">

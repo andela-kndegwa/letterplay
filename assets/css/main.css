@@ -24,17 +24,18 @@ main {
     position: absolute;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #fe3d50;
+    border-bottom: 1px solid #fff;
     margin: 5vh 25vw;
     width: 50%;
-    height: 15%; }
+    height: 15%;
+    animation: flash 2s infinite; }
     main #wordResponse:focus {
       outline: transparent; }
     main #wordResponse::placeholder {
       color: #fff;
       font-style: italic;
       font-weight: 100;
-      opacity: .6; }
+      opacity: .4; }
 
 input {
   color: #fff;
@@ -51,12 +52,51 @@ input {
       cursor: pointer;
       color: #ee8239; }
 
-.stats {
+#stats {
   display: flex;
+  justify-content: center;
   margin-top: -25vh;
   color: #ee8239;
   font-size: .3em;
   justify-content: space-around; }
+  #stats .score-stats,
+  #stats .target-stats,
+  #stats .timer-stats {
+    width: 33.33%;
+    height: 200px;
+    color: #fff; }
+  #stats .score-stats {
+    background: #2283f6;
+    display: flex; }
+    #stats .score-stats h2 {
+      color: #fff;
+      display: block;
+      padding: 20px; }
+    #stats .score-stats #score {
+      font-size: 7.5em;
+      display: block; }
+  #stats .target-stats {
+    background: #fae61e;
+    display: flex;
+    justify-content: center; }
+    #stats .target-stats h2 {
+      color: #101731;
+      display: block;
+      padding: 20px; }
+    #stats .target-stats #target {
+      font-size: 7.5em;
+      display: block; }
+  #stats .timer-stats {
+    background: #fe3d50;
+    display: flex;
+    justify-content: center; }
+    #stats .timer-stats h2 {
+      color: #fff;
+      display: block;
+      padding: 20px; }
+    #stats .timer-stats .seconds {
+      font-size: 7.5em;
+      display: block; }
 
 .text-highlight {
   color: #fae61e;
@@ -92,9 +132,9 @@ input {
   text-align: center;
   margin: 20px auto;
   color: #fe3d50;
-  animation: flash-deadline 1s infinite; }
+  animation: flash 1s infinite; }
 
-@keyframes flash-deadline {
+@keyframes flash {
   0% {
     opacity: .7; }
   50% {

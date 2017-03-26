@@ -4,10 +4,12 @@ $main-color : #101731;
 $font-color : #00eeba;
 $text-highlight : #fae61e;
 $letterplay-font : 'Baron Neue';
-$input-underline : #fe3d50;
 $secondary-color : #ee8239;
 $correct-answer : green;
 $white : #fff;
+$complementary-color-1: #2283f6;
+$complementary-color-2: #fae61e;
+$complementary-color-3: #fe3d50;
 
 body{
     font-size: 4.6rem;
@@ -37,10 +39,11 @@ main{
         position: absolute;
         background: transparent;
         border: none;
-        border-bottom : 1px solid $input-underline;
+        border-bottom : 1px solid $white;
         margin: 5vh 25vw;
         width: 50%;
         height: 15%;
+        animation: flash 2s infinite;
         &:focus{
             outline: transparent;
         }
@@ -48,7 +51,7 @@ main{
             color:$white;
             font-style: italic;
             font-weight:100;
-            opacity: .6;
+            opacity: .4;
         }
     }
 }
@@ -72,18 +75,72 @@ input{
     }
 }
 
-.stats {
+#stats {
     display: flex;
+    justify-content: center;
     margin-top: -25vh;
     color : $secondary-color;
     font-size: .3em;
     justify-content: space-around;
+    .score-stats,
+    .target-stats,
+    .timer-stats{
+        // display: inline-flex;
+        width: 33.33%;
+        height: 200px;
+        color: $white;
+    }
+    .score-stats{
+        background: $complementary-color-1;
+        display: flex;
+        h2{
+            color: $white;;
+            display:block;
+            padding: 20px;
+        }
+        #score{
+            font-size: 7.5em;
+            display: block;
+        }
+    }
+    .target-stats{
+        background: $complementary-color-2;
+        display: flex;
+        justify-content: center;
+        h2{
+            color: $main-color;
+            display:block;
+            padding: 20px;
+        }
+        #target{
+            font-size: 7.5em;
+            display: block;
+        }
+
+
+
+    }
+
+    .timer-stats {
+        background: $complementary-color-3;
+        display: flex;
+        justify-content: center;
+        h2{
+            color: $white;;
+            display:block;
+            padding: 20px;
+        }
+        .seconds{
+            font-size: 7.5em;
+            display: block;
+        }
+    }
 }
 
 
 .text-highlight{
     color : $text-highlight;
-    background : $input-underline;
+    background : $complementary-color-3;
     padding: 25px;
 }
 #solutions{
@@ -111,7 +168,7 @@ input{
 }
 
 .wrong{
-    background : $input-underline;
+    background : $complementary-color-3;
     color: $white;
 }
 
@@ -119,12 +176,12 @@ input{
     font-size: 1.3rem;
     text-align: center;
     margin: 20px auto;
-    color: $input-underline;
-    animation: flash-deadline 1s infinite;
+    color: $complementary-color-3;
+    animation: flash 1s infinite;
 }
 
 
-@keyframes flash-deadline{
+@keyframes flash{
     0% {
         opacity: .7;
     }
