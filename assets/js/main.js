@@ -3,7 +3,29 @@
     // Think of this as the mock dictionary.
     var wordList = ['exciting', 'letterplay', 'ambition', 'appealing', 'undeniable']
     // convert above to word list.
-    var wordChallenges = document.getElementsByClassName('wordChallenge');
+    var wordChallenge = document.getElementById('wordChallenge');
+    // randomly select a word from the wordList and then return it.
+    // this is what will become the text for the wordChallenge
+    function getRandomWord (){
+        var randomChallenge = wordList[Math.floor(Math.random()*wordList.length)];
+        return randomChallenge;
+    }
+    
+    // take random challenge and divide it into spans.
+    function turnRandomWordIntoSpans(){
+        var randomChallenge = getRandomWord();
+        var spanned = ""
+        for (var j =0 ; j < randomChallenge.length;j ++ ){
+            spanned += "<span>" + randomChallenge[j] + "</span>"
+        }
+        return spanned
+    }
+    // Add spans with this function
+    var spannedChallenge = turnRandomWordIntoSpans()
+    // Line 6 here we go.
+    wordChallenge.innerHTML = spannedChallenge
+    // wordChallenge.innerText = getRandomWord();
+    // get response form the user
     var wordResponse = document.getElementById('wordResponse');
     // prevent copy and paste of information into the input box
     //  use case --> There is no fun if you can copy and paste! 
@@ -105,11 +127,3 @@ function updateFailedAttempts(attempt){
 // split each letter into spans.
 // pass this word to the game play function.
 
-
-var newStuff = document.getElementById("newStuff");
-var wordIt = newStuff.innerText;
-for(var i = 0; i < wordIt.length; i ++){
-    newStuff.innerHTML = ''
-    console.log(wordIt.length)
-    // newStuff.innerHTML += "<span>" + wordIt[i] + "</span>"
-}

@@ -50,6 +50,7 @@ input{
     text-align: center;
     margin-top: 30vh;
     span{
+        margin: 0 10px;
         transition : .3s ease;
         &:hover{
             cursor: pointer;

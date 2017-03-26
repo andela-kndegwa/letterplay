@@ -26,17 +26,19 @@
     var uniqueKeys = Object.keys(wordChallengeMap)
     var uniqueKeyLength = Object.keys(wordChallengeMap).length
 
-function splitEachWordInList(){
-    var wordListLength = wordList.length;
-    var splitWords = [];
-    for (var j = 0 ; j < wordListLength; j ++){
-        splitWord = [];
-        var eachWord = wordList[j]
-        // console.log(eachWord.length)
-        for(var k = 0; k < eachWord.length; k ++){
-            eachWord[k].innerHTML += "<span>"
-            splitWord.push(eachWord[k])
-        }
-    splitWords.push(splitWord)
+    // randomly select a word from the wordList and then return it.
+    // this is what will become the text for the wordChallenge
+    function getRandomWord (){
+        var randomChallenge = wordList[Math.floor(Math.random()*wordList.length)];
+        return randomChallenge;
     }
-}
+    
+    // take random challenge and divide it into spans.
+    function turnRandomWordIntoSpans(){
+        var randomChallenge = getRandomWord();
+        var spanned = ""
+        for (var j =0 ; j < randomChallenge.length;j ++ ){
+            spanned += "<span>" + randomChallenge[j] + "</span>"
+        }
+        return spanned
+    }

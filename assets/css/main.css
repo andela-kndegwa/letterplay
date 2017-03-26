@@ -34,6 +34,7 @@ input {
   text-align: center;
   margin-top: 30vh; }
   #wordChallenge span {
+    margin: 0 10px;
     transition: .3s ease; }
     #wordChallenge span:hover {
       cursor: pointer;
