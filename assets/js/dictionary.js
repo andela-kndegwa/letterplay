@@ -4,8 +4,8 @@ var referenceDictionary = {
     'letterplay': ['letter', 'play', 'real', 'pay', 'lay', 'ray', 'let', 'peal', 'pet', 'eat','peat', 'tray', 'pray', 'tea', 'eat', 'tree', 'replay', 'repay', 'treat', 'late', 'pale', 'year', 'ate', 'rate'],
     'awesome' : ['awe', 'some', 'ewe', 'see', 'seam', 'seem'],
     'available' : ['mat', 'able', 'bill', 'bile', 'ail', 'label', 'veil', 'bale', 'avail', 'pail', 'ball', 'bell', 'bill', 'viable'],
-    'appealing' : ['peal','pan','pile', 'pail', 'ping', 'appeal', 'pig', 'pale', 'pine', 'ape','pea', 'gape', 'apple', 'pane'],
-    'undeniable' : ['able','lane', 'able','bale','line', 'bed', 'dine', 'bun', 'bile', 'lean', 'blend', 'be', 'bend', 'lend','bind', 'ban', 'bin', 'line', 'unable', 'nine', 'nun', 'band', 'bead']
+    'appealing' : ['peal','pan','pile', 'pail', 'ping', 'appeal', 'pig', 'pale', 'pine', 'ape','pea', 'gape', 'apple', 'pane', 'page'],
+    'undeniable' : ['able','lane', 'able','bale','line', 'bed', 'dine', 'bun', 'bile', 'lean', 'blend', 'be', 'bend', 'lend','bind', 'ban', 'bin', 'line', 'unable', 'nine', 'nun', 'band', 'bead', 'liable', 'den']
 }
 
 
