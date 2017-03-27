@@ -3,19 +3,21 @@
 $main-color : #101731;
 $font-color : #00eeba;
 $text-highlight : #fae61e;
-$letterplay-font : 'Baron Neue';
+$letterplay-font : 'Baron Neue'; // initial font, might change this.
 $secondary-color : #ee8239;
 $correct-answer : green;
 $white : #fff;
 $complementary-color-1: #2283f6;
 $complementary-color-2: #fae61e;
 $complementary-color-3: #fe3d50;
+$main-font :'Space Mono', monospace;
+
 
 body{
     font-size: 4.6rem;
     height: 100vh;
     width: 100vw;
-    font-family: $letterplay-font;
+    font-family: $main-font;
     color: $font-color;
     background: $main-color;
 }
