@@ -57,10 +57,9 @@ input {
 #stats {
   display: flex;
   justify-content: center;
-  margin-top: -25vh;
+  margin-top: -28vh;
   color: #ee8239;
-  font-size: .3em;
-  justify-content: space-around; }
+  font-size: .3em; }
   #stats .score-stats,
   #stats .target-stats,
   #stats .timer-stats {
@@ -133,7 +132,7 @@ input {
   padding: 25px; }
 
 #solutions {
-  margin-top: 30px;
+  margin-top: 45px;
   display: flex;
   justify-content: center; }
 

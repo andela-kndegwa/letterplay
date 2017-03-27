@@ -82,10 +82,9 @@ input{
 #stats {
     display: flex;
     justify-content: center;
-    margin-top: -25vh;
+    margin-top: -28vh;
     color : $secondary-color;
     font-size: .3em;
-    justify-content: space-around;
     .score-stats,
     .target-stats,
     .timer-stats{
@@ -177,7 +176,7 @@ input{
     padding: 25px;
 }
 #solutions{
-    margin-top: 30px;
+    margin-top: 45px;
     display: flex;
     justify-content: center;
 }
